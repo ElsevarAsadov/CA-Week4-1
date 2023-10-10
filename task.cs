@@ -45,6 +45,7 @@ public class HelloWorld
         {
             if (input[i] == ' ')
             {
+                //when ever cursor (i) is on the word
                 if (inWord)
                 {
                     inWord = false;
@@ -54,18 +55,19 @@ public class HelloWorld
                     this.Capitalize2(ref currentWord);
                     words[wordCount] = currentWord;
 
-                    // Clear the currentWord for the next word
+                    //after push word to array we reset current word
                     currentWord = "";
                 }
             }
             else
             {
+                //if the current cursor(i) is not whitespace it means we on the word.
                 inWord = true;
                 currentWord += input[i];
             }
         }
 
-   
+        //after loop end we check if we was on the word on the last iteration then it means we have a word
         if (inWord)
         {  
             wordCount++;    
@@ -77,13 +79,15 @@ public class HelloWorld
             Console.WriteLine("Fullname should be at least 2 words");
             return;
         }
+         //pack all strings into one string then assing to private prop   
         string result = "";
         foreach(string i in words){
             result += i + " ";
         }
         this._fullName = result;
         }
-        
+
+         //capitalize's string using ascii table order
         public void Capitalize1(ref string r){
             
             string x = "";
@@ -108,7 +112,7 @@ public class HelloWorld
             this.Phone = phone;
             
         }
-        
+        //Stupid method but works :)
         public void Capitalize2(ref string x)
 {
     string r = "";
@@ -193,14 +197,16 @@ public class HelloWorld
             r += 'Z';
             break;
         default:
+            //if char is not ascii value then take the whatever char is
             r += x[0];
             break;
     }
-
+    //in this section we pack strings except 0 index
     for (int i = 1; i < x.Length; i++)
     {
         r += x[i];
     }
+    //assing ref to result
     x = r;
 }
     }
