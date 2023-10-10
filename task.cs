@@ -43,7 +43,7 @@ public class HelloWorld
 
         for (int i = 0; i < input.Length; i++)
         {
-            if (Char.IsWhiteSpace(input[i]))
+            if (input[i] == ' ')
             {
                 if (inWord)
                 {
